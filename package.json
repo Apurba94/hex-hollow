@@ -1,0 +1,11 @@
+{
+  "name": "hex-hollow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Build a valley one hexagon at a time, where every tile scores from its neighbours and each season changes the rules.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
