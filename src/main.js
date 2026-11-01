@@ -10,7 +10,7 @@ const HELP = [
   ["Your valley", "Four seasons, eight tiles each. Pick a tile from your hand, then tap an empty space to place it. A number shows what it would add."],
   ["Scoring", "At the end of each season every tile scores from its neighbours, and that score is added to your harvest. Good early tiles keep paying all year."],
   ["The tiles", "Meadow: likes meadows, groves, rivers.\nGrove: likes groves.\nRiver: longer streams pay more.\nHut: likes meadows and rivers, hates mines.\nMine: likes peaks.\nMarket: likes variety.\nShrine: needs all different neighbours."],
-  ["Seasons", "Each season doubles one tile's score and changes which tiles you draw. Three secret-free goals are shown on screen and pay a bonus at the end of the year."],
+  ["Seasons", "Each season doubles one tile's score and changes which tiles you draw. Three goals are shown on screen, and each one pays a bonus at the end of the year."],
 ];
 
 function hexPath(c, x, y, s) {
@@ -125,7 +125,7 @@ class Board extends Scene {
     text(c, `${boardScore(v, season)}`, 195, 16, { size: 19, weight: 800, color: g.theme.gold });
     text(c, `this season, ${v.banked} banked`, 195, 35, { size: 10, color: g.theme.muted });
     const left = TURNS_PER_SEASON - (v.turn % TURNS_PER_SEASON);
-    text(c, `${left} tiles to go`, g.W - 76, 18, { size: 11, align: "right", color: g.theme.muted });
+    text(c, `${left} tile${left === 1 ? "" : "s"} to go`, g.W - 76, 18, { size: 11, align: "right", color: g.theme.muted });
     v.goals.forEach((o, i) => {
       const done = o.test(v);
       text(c, `${done ? "[x]" : "[ ]"} ${o.text}  +${o.points}`, 14, 54 + i * 15, { size: 11, align: "left", color: done ? "#bef264" : g.theme.muted });
